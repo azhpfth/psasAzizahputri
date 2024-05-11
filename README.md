@@ -5,7 +5,7 @@ CRUD table outlets
 * Install Laravel 11 dan sesuaikan nama project 
 contoh : (psasAzizahputri) 
 * Buat migration untuk table outlets
-* Buat seeder minimal 5 data
+* Buat seeder minimal 5 data atau masukan 125 data 
 * Buat Model dengan perintah (php artisan make:model Outlet) 
 * Buat controller 
 (php artisan make:controller OutletController) 
