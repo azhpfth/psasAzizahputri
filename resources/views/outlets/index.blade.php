@@ -28,21 +28,22 @@
                     <th>Updated_at</th>
                     <th>Action</th>
                 </tr>
-                @foreach($outlets as $o)
+                @foreach($outlets as $outlet)
                 <tr>
-                    <td>{{ $o->id }}</td>
-                    <td>{{ $o->code }}</td>
-                    <td>{{ $o->name }}</td>
-                    <td>{{ $o->status }}</td>
-                    <td>{{ $o->addres }}</td>
-                    <td>{{ $o->phone_number }}</td>
-                    <td>{{ $o->created_at }}</td>
-                    <td>{{ $o->updated_at }}</td>
+                    <td>{{ $outlet->id }}</td>
+                    <td>{{ $outlet->code }}</td>
+                    <td>{{ $outlet->name }}</td>
+                    <td>{{ $outlet->status }}</td>
+                    <td>{{ $outlet->addres }}</td>
+                    <td>{{ $outlet->phone_number }}</td>
+                    <td>{{ $outlet->created_at }}</td>
+                    <td>{{ $outlet->updated_at }}</td>
                     <td>
+                    
                         <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                            action="{{ route('outlets.destroy', $o->id) }}" method="POST">
-                            <a class="btn btn-primary" href="{{ route('outlets.show',$outlets) }}">Show</a>
-                            <a class="btn btn-warning" href="{{ route('outlets.edit',$outlets) }}">Edit</a>
+                            action="{{ route('outlets.destroy', $outlet->id) }}" method="POST">
+                            <a class="btn btn-primary" href="{{ route('outlets.show',$outlet->id) }}">Show</a>
+                            <a class="btn btn-warning" href="{{ route('outlets.edit',$outlet->id) }}">Edit</a>
                             @csrf
                             @method('DELETE')
                             <button type="submit" onclick="return confirm('Anda yakin, data outlet ini di hapus ?')" class="btn btn-danger">Delete</button>

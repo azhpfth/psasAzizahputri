@@ -33,8 +33,8 @@ class OutletController extends Controller
             'code' => 'required|max:5',
             'name' => 'required',
             'status' => 'required|in:sedang berlangsung, sudah selesai',
-            'address' => 'required',
-            'phone_number' => 'required',
+            'addres' => 'required',
+            'phone_number' => 'required|numeric',
         ]);
 
         Outlet::create([
@@ -51,9 +51,9 @@ class OutletController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Outlet $outlets)
     {
-        //
+        return view('outlets.show', compact('outlets'));
     }
 
     /**
@@ -73,13 +73,20 @@ class OutletController extends Controller
             'code' => 'required|max:5',
             'name' => 'required',
             'status' => 'required|in:sedang berlangsung, sudah selesai',
-            'address' => 'required',
-            'phone_number' => 'required',
+            'addres' => 'required',
+            'phone_number' => 'required|numeric',
         ]);
 
         $outlets = Outlet::find($id);
-        $outlets->update($request->all());
-        return redirect()->route('outletss.index')->with('success', 'Data berhasil di update');
+        Outlet::edit([
+            'code' => $request->code,
+            'name'     => $request->name,
+            'status'   => $request->status,
+            'addres'   => $request->addres,
+            'phone_number'   => $request->phone_number
+        ]);
+
+        return redirect()->route('outlets.index')->with('success', 'Data berhasil di update');
 
     }
 
