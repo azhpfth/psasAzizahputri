@@ -8,7 +8,7 @@
 </head>
 <body>
       
-        <h3 class="card-header p-3"><i class="fa-solid fa-user"></i> Laundry-Azizah Putri</h3>
+        <h3 class="card-header p-3"><i class="fa-solid fa-pen-to-square"></i> Edit Outlet </h3>
                     <div class="card-body">
                         <form action="{{ route('outlets.update', $outlets->id) }}" method="POST" enctype="multipart/form-data">
                         

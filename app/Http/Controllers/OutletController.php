@@ -59,8 +59,9 @@ class OutletController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Outlet $outlets)
+    public function edit(string $id)
     {
+        $outlets = Outlet::find($id);
         return view ('outlets.edit', compact('outlets'));
     }
 
@@ -78,7 +79,8 @@ class OutletController extends Controller
         ]);
 
         $outlets = Outlet::find($id);
-        Outlet::edit([
+
+        $outlets->update([
             'code' => $request->code,
             'name'     => $request->name,
             'status'   => $request->status,
